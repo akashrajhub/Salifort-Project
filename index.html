@@ -244,23 +244,28 @@
 
     /* CHARTS & SCREENSHOTS */
     .charts-row, .screenshot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  align-items: start;
+}
 
-    .charts-row img, .screenshot-grid img {
-      width: 100%;
-      height: 340px;
-      object-fit: contain;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #ffffff, #f0fdfa);
-      border: 2px solid var(--border-light);
-      box-shadow: 0 12px 30px rgba(15,118,110,0.15);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      cursor: pointer;
-    }
+
+
+   .charts-row img, .screenshot-grid img {
+  width: 100%;
+  height: auto;
+  max-height: 360px; /* Slightly taller cap for charts */
+  display: block;
+  border-radius: 20px;
+  background: #f8faff;
+  border: 2px solid var(--border-light);
+  box-shadow: 0 12px 30px rgba(15,118,110,0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
 
     .charts-row img:hover, .screenshot-grid img:hover {
       transform: translateY(-12px) scale(1.02);
@@ -270,28 +275,35 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      main {
-        padding: 2.5rem 1.5rem 4rem;
-      }
-      
-      .section-card {
-        padding: 2rem 1.8rem;
-        margin-top: 2.5rem;
-      }
-      
-      .hero {
-        min-height: 380px;
-      }
-      
-      .links {
-        flex-direction: column;
-      }
-      
-      .links a {
-        text-align: center;
-        padding: 1rem 2rem;
-      }
-    }
+  main {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  
+  .section-card {
+    padding: 2rem 1.8rem;
+    margin-top: 2.5rem;
+  }
+  
+  .hero {
+    min-height: 380px;
+  }
+  
+  .links {
+    flex-direction: column;
+  }
+  
+  .links a {
+    text-align: center;
+    padding: 1rem 2rem;
+  }
+  
+  /* Mobile grids - single column stacking */
+  .charts-row, .screenshot-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+}
+
 
     /* IMPROVED FOOTER */
     footer {
